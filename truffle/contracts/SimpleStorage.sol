@@ -2,13 +2,13 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract SimpleStorage {
-  uint256 value;
+  mapping (address => uint) value;
 
   function read() public view returns (uint256) {
-    return value;
+    return value[msg.sender];
   }
 
   function write(uint256 newValue) public {
-    value = newValue;
+    value[msg.sender] = newValue;
   }
 }

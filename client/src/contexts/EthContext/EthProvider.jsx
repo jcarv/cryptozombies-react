@@ -15,6 +15,7 @@ function EthProvider({ children }) {
         // const { abi } = artifact;
         let simpleStorageAbi, simpleStorageAddress, simpleStorageContract;
         let zombieFactoryAbi, zombieFactoryAddress, zombieFactoryContract;
+        let zombieFeedingAbi, zombieFeedingAddress, zombieFeedingContract;
         let contracts;
         try {
           debugger;
@@ -26,7 +27,11 @@ function EthProvider({ children }) {
           zombieFactoryAddress = artifacts.zombieFactoryArtifact.networks[networkID].address;
           zombieFactoryContract = new web3.eth.Contract(zombieFactoryAbi, zombieFactoryAddress);
 
-          contracts = { simpleStorageContract, zombieFactoryContract };
+          zombieFeedingAbi = artifacts.zombieFeedingArtifact.abi;
+          zombieFeedingAddress = artifacts.zombieFeedingArtifact.networks[networkID].address;
+          zombieFeedingContract = new web3.eth.Contract(zombieFeedingAbi, zombieFeedingAddress);
+
+          contracts = { simpleStorageContract, zombieFactoryContract, zombieFeedingContract };
         } catch (err) {
           console.error(err);
         }
@@ -42,9 +47,11 @@ function EthProvider({ children }) {
       try {
         const simpleStorageArtifact = require("../../contracts/SimpleStorage.json");
         const zombieFactoryArtifact = require("../../contracts/ZombieFactory.json");
+        const zombieFeedingArtifact = require("../../contracts/ZombieFeeding.json");
         const artifacts = {
           simpleStorageArtifact, 
-          zombieFactoryArtifact
+          zombieFactoryArtifact,
+          zombieFeedingArtifact
         } 
         init(artifacts);
       } catch (err) {

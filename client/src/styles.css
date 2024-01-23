@@ -24,9 +24,9 @@ html {
 }
 
 #App .container {
-  width: 40%;
+  width: 80%;
   min-width: 60rem;
-  max-width: 75rem;
+  /* max-width: 75rem; */
   height: 100%;
 }
 
@@ -104,7 +104,7 @@ hr {
 }
 
 #App .container .demo .contract-container code {
-  min-width: 42rem;
+  min-width: 100rem;
   border-radius: 1rem 0 0 1rem;
 }
 
@@ -120,7 +120,7 @@ hr {
 }
 
 #App .container .demo .contract-container .btns > * {
-  width: 12rem;
+  width: 28rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,7 +137,7 @@ hr {
 }
 
 #App .container .demo .contract-container .btns .input-btn input {
-  width: 4rem;
+  width: 8rem;
   text-align: center;
   font-family: monospace;
   font-size: 1.2rem;
