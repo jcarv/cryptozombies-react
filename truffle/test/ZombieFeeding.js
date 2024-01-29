@@ -12,14 +12,14 @@ contract("ZombieFeeding", (accounts) => {
         zombieFeedingInstance = await ZombieFeeding.new();
     });
 
-    // it("should feed and multiply", async () => {
-    //     const resultZombie = await zombieFeedingInstance.createRandomZombie(zombieNames[0], {from: alice});
-    //     assert.equal(resultZombie.receipt.status, true);
-    //     assert.equal(resultZombie.logs[0].args.name, zombieNames[0]);
-    //     const resultFeedAndMultiply = await zombieFeedingInstance.feedAndMultiply(resultZombie.logs[0].args.zombieId, 123456 , {from: alice});
-    //     assert.equal(resultFeedAndMultiply.receipt.status, true);
-    //     assert.equal(resultFeedAndMultiply.logs[0].args.name, "NoName");
-    // })
+    it("should feed and multiply", async () => {
+        const resultZombie = await zombieFeedingInstance.createRandomZombie(zombieNames[0], {from: alice});
+        assert.equal(resultZombie.receipt.status, true);
+        assert.equal(resultZombie.logs[0].args.name, zombieNames[0]);
+        const resultFeedAndMultiply = await zombieFeedingInstance.feedAndMultiply(resultZombie.logs[0].args.zombieId, 123456 , {from: alice});
+        assert.equal(resultFeedAndMultiply.receipt.status, true);
+        assert.equal(resultFeedAndMultiply.logs[0].args.name, "NoName");
+    })
 
     // it("should own for feed and multiply", async () => {
     //     const resultZombie = await zombieFeedingInstance.createRandomZombie(zombieNames[0], {from: alice});
